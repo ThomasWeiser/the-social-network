@@ -17,28 +17,7 @@ Elm.Ads.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
-   var myStyle = $Html$Attributes.style(_L.fromArray([A2($Utils._op["=>"],
-                                                     "width",
-                                                     "300px")
-                                                     ,A2($Utils._op["=>"],
-                                                     "height",
-                                                     "100%")
-                                                     ,A2($Utils._op["=>"],
-                                                     "background-color",
-                                                     "rgb(200, 200, 200)")
-                                                     ,A2($Utils._op["=>"],
-                                                     "display",
-                                                     "flex")
-                                                     ,A2($Utils._op["=>"],
-                                                     "justify-content",
-                                                     "center")]));
-   var view = F2(function (dispatcher,
-   model) {
-      return A2($Html.div,
-      _L.fromArray([myStyle]),
-      _L.fromArray([$Html.text("ads")]));
-   });
+   $Tea = Elm.Tea.make(_elm);
    var update = F3(function (dispatcher,
    action,
    model) {
@@ -47,14 +26,41 @@ Elm.Ads.make = function (_elm) {
          {case "NoOp":
             return {ctor: "_Tuple2"
                    ,_0: model
-                   ,_1: $Utils.doNothing};}
+                   ,_1: $Tea.doNothing};}
          _U.badCase($moduleName,
-         "between lines 26 and 28");
+         "between lines 29 and 31");
       }();
    });
    var NoOp = {ctor: "NoOp"};
    var model = {_: {}};
    var Model = {_: {}};
+   _op["=>"] = F2(function (v0,
+   v1) {
+      return {ctor: "_Tuple2"
+             ,_0: v0
+             ,_1: v1};
+   });
+   var myStyle = $Html$Attributes.style(_L.fromArray([A2(_op["=>"],
+                                                     "width",
+                                                     "300px")
+                                                     ,A2(_op["=>"],
+                                                     "height",
+                                                     "100%")
+                                                     ,A2(_op["=>"],
+                                                     "background-color",
+                                                     "rgb(200, 200, 200)")
+                                                     ,A2(_op["=>"],
+                                                     "display",
+                                                     "flex")
+                                                     ,A2(_op["=>"],
+                                                     "justify-content",
+                                                     "center")]));
+   var view = F2(function (dispatcher,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([myStyle]),
+      _L.fromArray([$Html.text("ads")]));
+   });
    _elm.Ads.values = {_op: _op
                      ,Model: Model
                      ,model: model
@@ -1884,81 +1890,9 @@ Elm.Feed.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $Story = Elm.Story.make(_elm),
-   $User = Elm.User.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
-   var myStyle = $Html$Attributes.style(_L.fromArray([A2($Utils._op["=>"],
-                                                     "flex-grow",
-                                                     "1")
-                                                     ,A2($Utils._op["=>"],
-                                                     "height",
-                                                     "100%")
-                                                     ,A2($Utils._op["=>"],
-                                                     "display",
-                                                     "block")
-                                                     ,A2($Utils._op["=>"],
-                                                     "background-color",
-                                                     "rgb(240, 240, 240)")
-                                                     ,A2($Utils._op["=>"],
-                                                     "overflow-y",
-                                                     "scroll")]));
-   var Story = F2(function (a,b) {
-      return {ctor: "Story"
-             ,_0: a
-             ,_1: b};
-   });
-   var update = F4(function (user,
-   dispatcher,
-   feedAction,
-   model) {
-      return function () {
-         switch (feedAction.ctor)
-         {case "Story":
-            return function () {
-                 var updateStory = F2(function (index$,
-                 story) {
-                    return _U.eq(feedAction._0,
-                    index$) ? A4($Story.update,
-                    user,
-                    A2($Utils.tag,
-                    Story(feedAction._0),
-                    dispatcher),
-                    feedAction._1,
-                    story) : {ctor: "_Tuple2"
-                             ,_0: story
-                             ,_1: $Utils.doNothing};
-                 });
-                 var $ = $List.unzip(A2($List.indexedMap,
-                 updateStory,
-                 model.stories)),
-                 newStories = $._0,
-                 effects = $._1;
-                 return {ctor: "_Tuple2"
-                        ,_0: _U.replace([["stories"
-                                         ,newStories]],
-                        model)
-                        ,_1: $Utils.batch(effects)};
-              }();}
-         _U.badCase($moduleName,
-         "between lines 97 and 113");
-      }();
-   });
-   var viewStory = F3(function (dispatcher,
-   index,
-   story) {
-      return A2($Story.view,
-      A2($Utils.tag,
-      Story(index),
-      dispatcher),
-      story);
-   });
-   var view = F2(function (dispatcher,
-   model) {
-      return A2($Html.div,
-      _L.fromArray([myStyle]),
-      A2($List.indexedMap,
-      viewStory(dispatcher),
-      model.stories));
-   });
+   $Tea = Elm.Tea.make(_elm),
+   $Tea$List = Elm.Tea.List.make(_elm),
+   $User = Elm.User.make(_elm);
    var model = {_: {}
                ,stories: _L.fromArray([{_: {}
                                        ,author: {_: {}
@@ -2020,17 +1954,74 @@ Elm.Feed.make = function (_elm) {
                                               ,pending: false
                                               ,state: false}
                                        ,message: "Farming looks mighty easy when your plow is a pencil and you\'re a thousand miles from the corn field."}])};
+   _op["=>"] = F2(function (v0,
+   v1) {
+      return {ctor: "_Tuple2"
+             ,_0: v0
+             ,_1: v1};
+   });
+   var myStyle = $Html$Attributes.style(_L.fromArray([A2(_op["=>"],
+                                                     "flex-grow",
+                                                     "1")
+                                                     ,A2(_op["=>"],
+                                                     "height",
+                                                     "100%")
+                                                     ,A2(_op["=>"],
+                                                     "display",
+                                                     "block")
+                                                     ,A2(_op["=>"],
+                                                     "background-color",
+                                                     "rgb(240, 240, 240)")
+                                                     ,A2(_op["=>"],
+                                                     "overflow-y",
+                                                     "scroll")]));
+   var Story = function (a) {
+      return {ctor: "Story",_0: a};
+   };
+   var update = F4(function (user,
+   dispatcher,
+   feedAction,
+   model) {
+      return function () {
+         switch (feedAction.ctor)
+         {case "Story":
+            return function () {
+                 var $ = A4($Tea$List.update,
+                 A2($Tea.to,dispatcher,Story),
+                 $Story.update(user),
+                 feedAction._0,
+                 model.stories),
+                 newStories = $._0,
+                 effects = $._1;
+                 return {ctor: "_Tuple2"
+                        ,_0: _U.replace([["stories"
+                                         ,newStories]],
+                        model)
+                        ,_1: effects};
+              }();}
+         _U.badCase($moduleName,
+         "between lines 27 and 35");
+      }();
+   });
+   var view = F2(function (dispatcher,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([myStyle]),
+      A3($Tea$List.view,
+      A2($Tea.to,dispatcher,Story),
+      $Story.view,
+      model.stories));
+   });
    var Model = function (a) {
       return {_: {},stories: a};
    };
    _elm.Feed.values = {_op: _op
                       ,Model: Model
-                      ,model: model
                       ,Story: Story
                       ,update: update
                       ,view: view
                       ,myStyle: myStyle
-                      ,viewStory: viewStory};
+                      ,model: model};
    return _elm.Feed.values;
 };
 Elm.Graphics = Elm.Graphics || {};
@@ -4712,12 +4703,12 @@ Elm.Main.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm),
-   $TheSocialNetwork = Elm.TheSocialNetwork.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
-   var app = $Utils.start({_: {}
-                          ,model: $TheSocialNetwork.model
-                          ,update: $TheSocialNetwork.update
-                          ,view: $TheSocialNetwork.view});
+   $Tea = Elm.Tea.make(_elm),
+   $TheSocialNetwork = Elm.TheSocialNetwork.make(_elm);
+   var app = $Tea.start({_: {}
+                        ,model: $TheSocialNetwork.model
+                        ,update: $TheSocialNetwork.update
+                        ,view: $TheSocialNetwork.view});
    var main = app.frames;
    var services = Elm.Native.Task.make(_elm).performSignal("services",
    app.effects);
@@ -13436,28 +13427,7 @@ Elm.Sidebar.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
-   var myStyle = $Html$Attributes.style(_L.fromArray([A2($Utils._op["=>"],
-                                                     "width",
-                                                     "300px")
-                                                     ,A2($Utils._op["=>"],
-                                                     "height",
-                                                     "100%")
-                                                     ,A2($Utils._op["=>"],
-                                                     "background-color",
-                                                     "rgb(200, 200, 200)")
-                                                     ,A2($Utils._op["=>"],
-                                                     "display",
-                                                     "flex")
-                                                     ,A2($Utils._op["=>"],
-                                                     "justify-content",
-                                                     "center")]));
-   var view = F2(function (dispatcher,
-   model) {
-      return A2($Html.div,
-      _L.fromArray([myStyle]),
-      _L.fromArray([$Html.text("sidebar")]));
-   });
+   $Tea = Elm.Tea.make(_elm);
    var update = F3(function (dispatcher,
    action,
    model) {
@@ -13466,14 +13436,41 @@ Elm.Sidebar.make = function (_elm) {
          {case "NoOp":
             return {ctor: "_Tuple2"
                    ,_0: model
-                   ,_1: $Utils.doNothing};}
+                   ,_1: $Tea.doNothing};}
          _U.badCase($moduleName,
-         "between lines 26 and 28");
+         "between lines 29 and 31");
       }();
    });
    var NoOp = {ctor: "NoOp"};
    var model = {_: {}};
    var Model = {_: {}};
+   _op["=>"] = F2(function (v0,
+   v1) {
+      return {ctor: "_Tuple2"
+             ,_0: v0
+             ,_1: v1};
+   });
+   var myStyle = $Html$Attributes.style(_L.fromArray([A2(_op["=>"],
+                                                     "width",
+                                                     "300px")
+                                                     ,A2(_op["=>"],
+                                                     "height",
+                                                     "100%")
+                                                     ,A2(_op["=>"],
+                                                     "background-color",
+                                                     "rgb(200, 200, 200)")
+                                                     ,A2(_op["=>"],
+                                                     "display",
+                                                     "flex")
+                                                     ,A2(_op["=>"],
+                                                     "justify-content",
+                                                     "center")]));
+   var view = F2(function (dispatcher,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([myStyle]),
+      _L.fromArray([$Html.text("sidebar")]));
+   });
    _elm.Sidebar.values = {_op: _op
                          ,Model: Model
                          ,model: model
@@ -13649,21 +13646,27 @@ Elm.Story.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm),
-   $User = Elm.User.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
-   var myStyle = $Html$Attributes.style(_L.fromArray([A2($Utils._op["=>"],
+   $Tea = Elm.Tea.make(_elm),
+   $User = Elm.User.make(_elm);
+   _op["=>"] = F2(function (v0,
+   v1) {
+      return {ctor: "_Tuple2"
+             ,_0: v0
+             ,_1: v1};
+   });
+   var myStyle = $Html$Attributes.style(_L.fromArray([A2(_op["=>"],
                                                      "width",
                                                      "80%")
-                                                     ,A2($Utils._op["=>"],
+                                                     ,A2(_op["=>"],
                                                      "padding",
                                                      "10px 5%")
-                                                     ,A2($Utils._op["=>"],
+                                                     ,A2(_op["=>"],
                                                      "margin",
                                                      "20px 5%")
-                                                     ,A2($Utils._op["=>"],
+                                                     ,A2(_op["=>"],
                                                      "background-color",
                                                      "white")
-                                                     ,A2($Utils._op["=>"],
+                                                     ,A2(_op["=>"],
                                                      "display",
                                                      "block")]));
    var SetLike = function (a) {
@@ -13717,7 +13720,7 @@ Elm.Story.make = function (_elm) {
                                      ,pending: true
                                      ,state: action._0}]],
                    story)
-                   ,_1: A2($Utils.arbitraryTask,
+                   ,_1: A2($Tea.arbitraryTask,
                    dispatcher,
                    A3(requestLikeState,
                    user,
@@ -13730,7 +13733,7 @@ Elm.Story.make = function (_elm) {
                                      ,pending: false
                                      ,state: action._0}]],
                    story)
-                   ,_1: $Utils.doNothing};}
+                   ,_1: $Tea.doNothing};}
          _U.badCase($moduleName,
          "between lines 58 and 75");
       }();
@@ -14142,6 +14145,217 @@ Elm.Task.make = function (_elm) {
                       ,sleep: sleep};
    return _elm.Task.values;
 };
+Elm.Tea = Elm.Tea || {};
+Elm.Tea.make = function (_elm) {
+   "use strict";
+   _elm.Tea = _elm.Tea || {};
+   if (_elm.Tea.values)
+   return _elm.Tea.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Tea",
+   $Basics = Elm.Basics.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Task = Elm.Task.make(_elm);
+   var Output = F2(function (a,b) {
+      return {_: {}
+             ,effects: b
+             ,frames: a};
+   });
+   var App = F3(function (a,b,c) {
+      return {_: {}
+             ,model: a
+             ,update: c
+             ,view: b};
+   });
+   var Never = function (a) {
+      return {ctor: "Never",_0: a};
+   };
+   var Effects = function (a) {
+      return {ctor: "Effects"
+             ,_0: a};
+   };
+   var doNothing = Effects(_L.fromArray([]));
+   var start = function (app) {
+      return function () {
+         var stateToTask = function (_v0) {
+            return function () {
+               switch (_v0.ctor)
+               {case "_Tuple2":
+                  switch (_v0._1.ctor)
+                    {case "Effects":
+                       return A2($Task.andThen,
+                         $Task.sequence(_v0._1._0),
+                         function (_v5) {
+                            return function () {
+                               return $Task.succeed({ctor: "_Tuple0"});
+                            }();
+                         });}
+                    break;}
+               _U.badCase($moduleName,
+               "between lines 81 and 82");
+            }();
+         };
+         var actions = $Signal.mailbox($Maybe.Nothing);
+         var address = A2($Signal.forwardTo,
+         actions.address,
+         $Maybe.Just);
+         var state = A3($Signal.foldp,
+         F2(function (_v7,_v8) {
+            return function () {
+               switch (_v8.ctor)
+               {case "_Tuple2":
+                  return function () {
+                       switch (_v7.ctor)
+                       {case "Just":
+                          return A3(app.update,
+                            address,
+                            _v7._0,
+                            _v8._0);}
+                       _U.badCase($moduleName,
+                       "on line 76, column 39 to 70");
+                    }();}
+               _U.badCase($moduleName,
+               "on line 76, column 39 to 70");
+            }();
+         }),
+         {ctor: "_Tuple2"
+         ,_0: app.model
+         ,_1: doNothing},
+         actions.signal);
+         return {_: {}
+                ,effects: A2($Signal.map,
+                stateToTask,
+                state)
+                ,frames: A2($Signal.map,
+                function ($) {
+                   return app.view(address)($Basics.fst($));
+                },
+                state)};
+      }();
+   };
+   var arbitraryTask = F2(function (dispatcher,
+   task) {
+      return Effects(_L.fromArray([A2($Task.andThen,
+      task,
+      $Signal.send(dispatcher))]));
+   });
+   var batch = function (effectList) {
+      return Effects(A2($List.concatMap,
+      function (_v14) {
+         return function () {
+            switch (_v14.ctor)
+            {case "Effects":
+               return _v14._0;}
+            _U.badCase($moduleName,
+            "on line 55, column 50 to 57");
+         }();
+      },
+      effectList));
+   };
+   var to = F2(function (dispatcher,
+   f) {
+      return A2($Signal.forwardTo,
+      dispatcher,
+      f);
+   });
+   _elm.Tea.values = {_op: _op
+                     ,to: to
+                     ,doNothing: doNothing
+                     ,arbitraryTask: arbitraryTask
+                     ,batch: batch
+                     ,start: start};
+   return _elm.Tea.values;
+};
+Elm.Tea = Elm.Tea || {};
+Elm.Tea.List = Elm.Tea.List || {};
+Elm.Tea.List.make = function (_elm) {
+   "use strict";
+   _elm.Tea = _elm.Tea || {};
+   _elm.Tea.List = _elm.Tea.List || {};
+   if (_elm.Tea.List.values)
+   return _elm.Tea.List.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Tea.List",
+   $Basics = Elm.Basics.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Tea = Elm.Tea.make(_elm);
+   var UpdateElement = F2(function (a,
+   b) {
+      return {ctor: "UpdateElement"
+             ,_0: a
+             ,_1: b};
+   });
+   var actionFor = UpdateElement;
+   var update = F4(function (dispatcher,
+   subupdate,
+   _v0,
+   models) {
+      return function () {
+         switch (_v0.ctor)
+         {case "UpdateElement":
+            return function () {
+                 var indexedUpdate = F2(function (index$,
+                 model) {
+                    return _U.eq(_v0._0,
+                    index$) ? A3(subupdate,
+                    A2($Tea.to,
+                    dispatcher,
+                    UpdateElement(_v0._0)),
+                    _v0._1,
+                    model) : {ctor: "_Tuple2"
+                             ,_0: model
+                             ,_1: $Tea.doNothing};
+                 });
+                 var $ = $List.unzip(A2($List.indexedMap,
+                 indexedUpdate,
+                 models)),
+                 newModels = $._0,
+                 effects = $._1;
+                 return {ctor: "_Tuple2"
+                        ,_0: newModels
+                        ,_1: $Tea.batch(effects)};
+              }();}
+         _U.badCase($moduleName,
+         "between lines 29 and 39");
+      }();
+   });
+   var view = F3(function (dispatcher,
+   subview,
+   models) {
+      return function () {
+         var indexedView = F2(function (index,
+         model) {
+            return A2(subview,
+            A2($Tea.to,
+            dispatcher,
+            UpdateElement(index)),
+            model);
+         });
+         return A2($List.indexedMap,
+         indexedView,
+         models);
+      }();
+   });
+   _elm.Tea.List.values = {_op: _op
+                          ,actionFor: actionFor
+                          ,update: update
+                          ,view: view};
+   return _elm.Tea.List.values;
+};
 Elm.Text = Elm.Text || {};
 Elm.Text.make = function (_elm) {
    "use strict";
@@ -14250,8 +14464,8 @@ Elm.TheSocialNetwork.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Sidebar = Elm.Sidebar.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $User = Elm.User.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
+   $Tea = Elm.Tea.make(_elm),
+   $User = Elm.User.make(_elm);
    var Ads = function (a) {
       return {ctor: "Ads",_0: a};
    };
@@ -14262,37 +14476,6 @@ Elm.TheSocialNetwork.make = function (_elm) {
       return {ctor: "Sidebar"
              ,_0: a};
    };
-   var view = F2(function (dispatcher,
-   model) {
-      return A2($Html.div,
-      _L.fromArray([$Html$Attributes.$class("the-social-network")
-                   ,$Html$Attributes.style(_L.fromArray([A2($Utils._op["=>"],
-                                                        "width",
-                                                        "100%")
-                                                        ,A2($Utils._op["=>"],
-                                                        "height",
-                                                        "100%")
-                                                        ,A2($Utils._op["=>"],
-                                                        "display",
-                                                        "flex")
-                                                        ,A2($Utils._op["=>"],
-                                                        "flex-direction",
-                                                        "row")]))]),
-      _L.fromArray([A3($Html$Lazy.lazy2,
-                   $Sidebar.view,
-                   A2($Utils.tag,
-                   Sidebar,
-                   dispatcher),
-                   model.sidebar)
-                   ,A3($Html$Lazy.lazy2,
-                   $Feed.view,
-                   A2($Utils.tag,Feed,dispatcher),
-                   model.feed)
-                   ,A3($Html$Lazy.lazy2,
-                   $Ads.view,
-                   A2($Utils.tag,Ads,dispatcher),
-                   model.ads)]));
-   });
    var user = {_: {}
               ,first: "Alice"
               ,id: "alice"
@@ -14305,7 +14488,7 @@ Elm.TheSocialNetwork.make = function (_elm) {
          {case "Ads":
             return function () {
                  var $ = A3($Ads.update,
-                 A2($Utils.tag,Ads,dispatcher),
+                 A2($Tea.to,dispatcher,Ads),
                  tsnAction._0,
                  model.ads),
                  newAds = $._0,
@@ -14320,7 +14503,7 @@ Elm.TheSocialNetwork.make = function (_elm) {
             return function () {
                  var $ = A4($Feed.update,
                  user,
-                 A2($Utils.tag,Feed,dispatcher),
+                 A2($Tea.to,dispatcher,Feed),
                  tsnAction._0,
                  model.feed),
                  newFeed = $._0,
@@ -14334,9 +14517,7 @@ Elm.TheSocialNetwork.make = function (_elm) {
             case "Sidebar":
             return function () {
                  var $ = A3($Sidebar.update,
-                 A2($Utils.tag,
-                 Sidebar,
-                 dispatcher),
+                 A2($Tea.to,dispatcher,Sidebar),
                  tsnAction._0,
                  model.sidebar),
                  newSidebar = $._0,
@@ -14348,7 +14529,7 @@ Elm.TheSocialNetwork.make = function (_elm) {
                         ,_1: effects};
               }();}
          _U.badCase($moduleName,
-         "between lines 49 and 75");
+         "between lines 52 and 78");
       }();
    });
    var model = {_: {}
@@ -14362,6 +14543,41 @@ Elm.TheSocialNetwork.make = function (_elm) {
              ,ads: c
              ,feed: b
              ,sidebar: a};
+   });
+   _op["=>"] = F2(function (v0,
+   v1) {
+      return {ctor: "_Tuple2"
+             ,_0: v0
+             ,_1: v1};
+   });
+   var view = F2(function (dispatcher,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([$Html$Attributes.$class("the-social-network")
+                   ,$Html$Attributes.style(_L.fromArray([A2(_op["=>"],
+                                                        "width",
+                                                        "100%")
+                                                        ,A2(_op["=>"],
+                                                        "height",
+                                                        "100%")
+                                                        ,A2(_op["=>"],
+                                                        "display",
+                                                        "flex")
+                                                        ,A2(_op["=>"],
+                                                        "flex-direction",
+                                                        "row")]))]),
+      _L.fromArray([A3($Html$Lazy.lazy2,
+                   $Sidebar.view,
+                   A2($Tea.to,dispatcher,Sidebar),
+                   model.sidebar)
+                   ,A3($Html$Lazy.lazy2,
+                   $Feed.view,
+                   A2($Tea.to,dispatcher,Feed),
+                   model.feed)
+                   ,A3($Html$Lazy.lazy2,
+                   $Ads.view,
+                   A2($Tea.to,dispatcher,Ads),
+                   model.ads)]));
    });
    _elm.TheSocialNetwork.values = {_op: _op
                                   ,Model: Model
@@ -14537,7 +14753,7 @@ Elm.User.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $Utils = Elm.Utils.make(_elm);
+   $Tea = Elm.Tea.make(_elm);
    var toLink = function (_v0) {
       return function () {
          return A2($Html.a,
@@ -14578,7 +14794,7 @@ Elm.User.make = function (_elm) {
          {case "NoOp":
             return {ctor: "_Tuple2"
                    ,_0: model
-                   ,_1: $Utils.doNothing};}
+                   ,_1: $Tea.doNothing};}
          _U.badCase($moduleName,
          "between lines 36 and 38");
       }();
@@ -14611,140 +14827,6 @@ Elm.User.make = function (_elm) {
                       ,view: view
                       ,toLink: toLink};
    return _elm.User.values;
-};
-Elm.Utils = Elm.Utils || {};
-Elm.Utils.make = function (_elm) {
-   "use strict";
-   _elm.Utils = _elm.Utils || {};
-   if (_elm.Utils.values)
-   return _elm.Utils.values;
-   var _op = {},
-   _N = Elm.Native,
-   _U = _N.Utils.make(_elm),
-   _L = _N.List.make(_elm),
-   $moduleName = "Utils",
-   $Basics = Elm.Basics.make(_elm),
-   $Html = Elm.Html.make(_elm),
-   $List = Elm.List.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm),
-   $Task = Elm.Task.make(_elm);
-   var Output = F2(function (a,b) {
-      return {_: {}
-             ,effects: b
-             ,frames: a};
-   });
-   var App = F3(function (a,b,c) {
-      return {_: {}
-             ,model: a
-             ,update: c
-             ,view: b};
-   });
-   var Never = function (a) {
-      return {ctor: "Never",_0: a};
-   };
-   var Effects = function (a) {
-      return {ctor: "Effects"
-             ,_0: a};
-   };
-   var doNothing = Effects(_L.fromArray([]));
-   var start = function (app) {
-      return function () {
-         var stateToTask = function (_v0) {
-            return function () {
-               switch (_v0.ctor)
-               {case "_Tuple2":
-                  switch (_v0._1.ctor)
-                    {case "Effects":
-                       return A2($Task.andThen,
-                         $Task.sequence(_v0._1._0),
-                         function (_v5) {
-                            return function () {
-                               return $Task.succeed({ctor: "_Tuple0"});
-                            }();
-                         });}
-                    break;}
-               _U.badCase($moduleName,
-               "between lines 73 and 74");
-            }();
-         };
-         var actions = $Signal.mailbox($Maybe.Nothing);
-         var address = A2($Signal.forwardTo,
-         actions.address,
-         $Maybe.Just);
-         var state = A3($Signal.foldp,
-         F2(function (_v7,_v8) {
-            return function () {
-               switch (_v8.ctor)
-               {case "_Tuple2":
-                  return function () {
-                       switch (_v7.ctor)
-                       {case "Just":
-                          return A3(app.update,
-                            address,
-                            _v7._0,
-                            _v8._0);}
-                       _U.badCase($moduleName,
-                       "on line 68, column 47 to 78");
-                    }();}
-               _U.badCase($moduleName,
-               "on line 68, column 47 to 78");
-            }();
-         }),
-         {ctor: "_Tuple2"
-         ,_0: app.model
-         ,_1: doNothing},
-         actions.signal);
-         return {_: {}
-                ,effects: A2($Signal.map,
-                stateToTask,
-                state)
-                ,frames: A2($Signal.map,
-                function ($) {
-                   return app.view(address)($Basics.fst($));
-                },
-                state)};
-      }();
-   };
-   var arbitraryTask = F2(function (dispatcher,
-   task) {
-      return Effects(_L.fromArray([A2($Task.andThen,
-      task,
-      $Signal.send(dispatcher))]));
-   });
-   var batch = function (effectList) {
-      return Effects(A2($List.concatMap,
-      function (_v14) {
-         return function () {
-            switch (_v14.ctor)
-            {case "Effects":
-               return _v14._0;}
-            _U.badCase($moduleName,
-            "on line 47, column 50 to 57");
-         }();
-      },
-      effectList));
-   };
-   var tag = F2(function (f,
-   dispatcher) {
-      return A2($Signal.forwardTo,
-      dispatcher,
-      f);
-   });
-   _op["=>"] = F2(function (v0,
-   v1) {
-      return {ctor: "_Tuple2"
-             ,_0: v0
-             ,_1: v1};
-   });
-   _elm.Utils.values = {_op: _op
-                       ,tag: tag
-                       ,doNothing: doNothing
-                       ,arbitraryTask: arbitraryTask
-                       ,batch: batch
-                       ,start: start};
-   return _elm.Utils.values;
 };
 Elm.VirtualDom = Elm.VirtualDom || {};
 Elm.VirtualDom.make = function (_elm) {
