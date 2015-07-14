@@ -5,14 +5,60 @@ import Html.Attributes exposing (..)
 
 import Story
 import User
-import Utils exposing ((=>), Dispatcher, Effects, tag)
+import Tea exposing (Dispatcher, Effects, to)
+import Tea.List as TList
 
+
+-- MODEL
 
 type alias Model =
-    {
-        stories : List Story.Model
+    { stories : List Story.Model
     }
 
+
+-- UPDATE
+
+type Action
+    = Story (TList.Action Story.Action)
+
+
+update : User.Model -> Dispatcher Action -> Action -> Model -> (Model, Effects)
+update user dispatcher feedAction model =
+  case feedAction of
+    Story action ->
+      let
+        (newStories, effects) =
+          TList.update (to dispatcher Story) (Story.update user) action model.stories
+      in
+        ( { model | stories <- newStories }
+        , effects
+        )
+
+
+-- VIEW
+
+(=>) = (,)
+
+
+view : Dispatcher Action -> Model -> Html
+view dispatcher model =
+  div
+    [ myStyle ]
+    (TList.view (to dispatcher Story) Story.view model.stories)
+
+
+myStyle : Attribute
+myStyle =
+  style
+    [ "flex-grow" => "1"
+    , "height" => "100%"
+    , "display" => "block"
+    , "background-color" => "rgb(240, 240, 240)"
+    , "overflow-y" => "scroll"
+    ]
+
+
+-- DUMMY DATA
 
 model : Model
 model =
@@ -86,52 +132,3 @@ model =
           }
       ]
   }
-
-
-type Action
-    = Story Int Story.Action
-
-
-update : User.Model -> Dispatcher Action -> Action -> Model -> (Model, Effects)
-update user dispatcher feedAction model =
-  case feedAction of
-    Story index action ->
-      let
-        updateStory index' story =
-          if index == index' then
-            Story.update user (tag (Story index) dispatcher) action story
-          else
-            (story, Utils.doNothing)
-
-        (newStories, effects) =
-          List.unzip (List.indexedMap updateStory model.stories)
-      in
-        (
-          { model | stories <- newStories }
-        ,
-          Utils.batch effects
-        )
-
-view : Dispatcher Action -> Model -> Html
-view dispatcher model =
-  div
-    [ myStyle ]
-    (List.indexedMap (viewStory dispatcher) model.stories)
-
-
-myStyle : Attribute
-myStyle =
-  style
-    [ "flex-grow" => "1"
-    , "height" => "100%"
-    , "display" => "block"
-    , "background-color" => "rgb(240, 240, 240)"
-    , "overflow-y" => "scroll"
-    ]
-
-
-viewStory : Dispatcher Action -> Int -> Story.Model -> Html
-viewStory dispatcher index story =
-  Story.view (tag (Story index) dispatcher) story
-
-

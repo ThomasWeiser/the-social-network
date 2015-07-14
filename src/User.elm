@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Json.Decode as Json exposing ((:=))
 
-import Utils exposing (..)
+import Tea exposing (Dispatcher, Effects)
 
 
 type alias Model =
@@ -35,7 +35,7 @@ update : Dispatcher Action -> Action -> Model -> (Model, Effects)
 update dispatcher action model =
     case action of
         NoOp ->
-            (model, doNothing)
+            (model, Tea.doNothing)
 
 
 -- VIEW

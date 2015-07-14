@@ -8,7 +8,7 @@ import Json.Decode as Json exposing ((:=))
 import Task
 
 import User
-import Utils exposing (..)
+import Tea exposing (Dispatcher, Effects)
 
 
 type alias Model =
@@ -62,7 +62,7 @@ update user dispatcher action story =
             like <- { pending = True, state = bool }
         }
       ,
-        Utils.arbitraryTask dispatcher (requestLikeState user story bool)
+        Tea.arbitraryTask dispatcher (requestLikeState user story bool)
       )
 
     SetLike bool ->
@@ -71,11 +71,11 @@ update user dispatcher action story =
             like <- { pending = False, state = bool }
         }
       ,
-        Utils.doNothing
+        Tea.doNothing
       )
 
 
-requestLikeState : User.Model -> Model -> Bool -> Task.Task Utils.Never Action
+requestLikeState : User.Model -> Model -> Bool -> Task.Task Tea.Never Action
 requestLikeState user story goal =
   let
     urlChunk =
@@ -99,6 +99,9 @@ requestLikeState user story goal =
 
 
 -- VIEW
+
+(=>) = (,)
+
 
 view : Dispatcher Action -> Model -> Html
 view dispatcher story =

@@ -3,7 +3,10 @@ module Sidebar where
 import Html exposing (..)
 import Html.Attributes exposing (..)
 
-import Utils exposing ((=>), Dispatcher, Effects)
+import Tea exposing (Dispatcher, Effects)
+
+
+(=>) = (,)
 
 
 type alias Model =
@@ -25,7 +28,7 @@ update : Dispatcher Action -> Action -> Model -> (Model, Effects)
 update dispatcher action model =
   case action of
     NoOp ->
-      (model, Utils.doNothing)
+      (model, Tea.doNothing)
 
 
 view : Dispatcher Action -> Model -> Html

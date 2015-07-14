@@ -8,7 +8,10 @@ import Ads
 import Feed
 import Sidebar
 import User
-import Utils exposing ((=>), Dispatcher, Effects, tag)
+import Tea exposing (Dispatcher, Effects, to)
+
+
+(=>) = (,)
 
 
 -- MODEL
@@ -50,7 +53,7 @@ update dispatcher tsnAction model =
         Sidebar action ->
             let
                 (newSidebar, effects) =
-                    Sidebar.update (tag Sidebar dispatcher) action model.sidebar
+                    Sidebar.update (to dispatcher Sidebar) action model.sidebar
             in
                 ( { model | sidebar <- newSidebar }
                 , effects
@@ -59,7 +62,7 @@ update dispatcher tsnAction model =
         Feed action ->
             let
                 (newFeed, effects) =
-                    Feed.update user (tag Feed dispatcher) action model.feed
+                    Feed.update user (to dispatcher Feed) action model.feed
             in
                 ( { model | feed <- newFeed }
                 , effects
@@ -68,7 +71,7 @@ update dispatcher tsnAction model =
         Ads action ->
             let
                 (newAds, effects) =
-                    Ads.update (tag Ads dispatcher) action model.ads
+                    Ads.update (to dispatcher Ads) action model.ads
             in
                 ( { model | ads <- newAds }
                 , effects
@@ -92,16 +95,16 @@ view dispatcher model =
         [
             lazy2
                 Sidebar.view
-                (tag Sidebar dispatcher)
+                (to dispatcher Sidebar)
                 model.sidebar
         ,
             lazy2
                 Feed.view
-                (tag Feed dispatcher)
+                (to dispatcher Feed)
                 model.feed
         ,
             lazy2
                 Ads.view
-                (tag Ads dispatcher)
+                (to dispatcher Ads)
                 model.ads
         ]

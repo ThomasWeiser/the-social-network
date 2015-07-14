@@ -3,11 +3,11 @@ module Main where
 import Task exposing (Task)
 
 import TheSocialNetwork as TSN
-import Utils
+import Tea
 
 
 app =
-    Utils.start
+    Tea.start
         {
             model = TSN.model,
             view = TSN.view,
@@ -19,6 +19,6 @@ main =
     app.frames
 
 
-port services : Signal (Task Utils.Never ())
+port services : Signal (Task Tea.Never ())
 port services =
     app.effects
