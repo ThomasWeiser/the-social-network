@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "summary": "an example app that has effects in nested components",
+    "repository": "https://github.com/evancz/the-social-network.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "2.1.0 <= v < 3.0.0",
+        "evancz/elm-html": "3.0.0 <= v < 4.0.0",
+        "evancz/elm-http": "1.0.0 <= v < 2.0.0"
+    },
+    "elm-version": "0.15.1 <= v < 0.16.0"
+}
