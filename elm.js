@@ -579,7 +579,7 @@ Elm.Color.make = function (_elm) {
                         ,saturation: s};
               }();}
          _U.badCase($moduleName,
-         "between lines 114 and 118");
+         "between lines 114 and 121");
       }();
    };
    var HSLA = F4(function (a,
@@ -635,7 +635,7 @@ Elm.Color.make = function (_elm) {
                  color._3);
               }();}
          _U.badCase($moduleName,
-         "between lines 105 and 108");
+         "between lines 105 and 111");
       }();
    };
    var grayscale = function (p) {
@@ -915,7 +915,7 @@ Elm.Dict.make = function (_elm) {
               A3(foldr,f,acc,t._4)),
               t._3);}
          _U.badCase($moduleName,
-         "between lines 417 and 421");
+         "between lines 417 and 425");
       }();
    });
    var keys = function (dict) {
@@ -971,7 +971,7 @@ Elm.Dict.make = function (_elm) {
               A3(foldl,f,acc,dict._3)),
               dict._4);}
          _U.badCase($moduleName,
-         "between lines 406 and 410");
+         "between lines 406 and 414");
       }();
    });
    var isBBlack = function (dict) {
@@ -995,7 +995,7 @@ Elm.Dict.make = function (_elm) {
             case "Remove": return "Remove";
             case "Same": return "Same";}
          _U.badCase($moduleName,
-         "between lines 182 and 185");
+         "between lines 182 and 188");
       }();
    };
    var Same = {ctor: "Same"};
@@ -1025,10 +1025,10 @@ Elm.Dict.make = function (_elm) {
                       targetKey,
                       dict._3);}
                  _U.badCase($moduleName,
-                 "between lines 129 and 132");
+                 "between lines 129 and 135");
               }();}
          _U.badCase($moduleName,
-         "between lines 124 and 132");
+         "between lines 124 and 135");
       }();
    });
    var member = F2(function (key,
@@ -1039,7 +1039,7 @@ Elm.Dict.make = function (_elm) {
          {case "Just": return true;
             case "Nothing": return false;}
          _U.badCase($moduleName,
-         "between lines 138 and 140");
+         "between lines 138 and 146");
       }();
    });
    var max = function (dict) {
@@ -1055,7 +1055,7 @@ Elm.Dict.make = function (_elm) {
                         ,_1: dict._2};}
               return max(dict._4);}
          _U.badCase($moduleName,
-         "between lines 100 and 108");
+         "between lines 100 and 121");
       }();
    };
    var min = function (dict) {
@@ -1127,7 +1127,7 @@ Elm.Dict.make = function (_elm) {
               A2(map,f,dict._3),
               A2(map,f,dict._4));}
          _U.badCase($moduleName,
-         "between lines 394 and 399");
+         "between lines 394 and 403");
       }();
    });
    var showNColor = function (c) {
@@ -1176,7 +1176,7 @@ Elm.Dict.make = function (_elm) {
                    dict._4);}
               break;}
          _U.badCase($moduleName,
-         "between lines 154 and 162");
+         "between lines 154 and 166");
       }();
    };
    var blackish = function (t) {
@@ -1260,7 +1260,7 @@ Elm.Dict.make = function (_elm) {
               t._3,
               t._4);}
          _U.badCase($moduleName,
-         "between lines 386 and 388");
+         "between lines 386 and 391");
       }();
    };
    var balance_node = function (t) {
@@ -1727,7 +1727,7 @@ Elm.Dict.make = function (_elm) {
                case "Same":
                return updatedDict;}
             _U.badCase($moduleName,
-            "between lines 222 and 225");
+            "between lines 222 and 228");
          }();
       }();
    });
@@ -2824,7 +2824,7 @@ Elm.Graphics.Element.make = function (_elm) {
                  maxOrZero(ws),
                  $List.sum(hs));}
             _U.badCase($moduleName,
-            "between lines 362 and 368");
+            "between lines 362 and 373");
          }();
       }();
    });
@@ -4448,7 +4448,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return $Maybe.Nothing;}
          _U.badCase($moduleName,
-         "between lines 87 and 89");
+         "between lines 87 and 95");
       }();
    };
    var head = function (list) {
@@ -4459,7 +4459,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return $Maybe.Nothing;}
          _U.badCase($moduleName,
-         "between lines 75 and 77");
+         "between lines 75 and 84");
       }();
    };
    _op["::"] = $Native$List.cons;
@@ -4498,7 +4498,7 @@ Elm.List.make = function (_elm) {
             return A2(_op["::"],_v15._0,xs);
             case "Nothing": return xs;}
          _U.badCase($moduleName,
-         "between lines 179 and 181");
+         "between lines 179 and 186");
       }();
    });
    var filterMap = F2(function (f,
@@ -4645,7 +4645,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return _L.fromArray([]);}
          _U.badCase($moduleName,
-         "between lines 350 and 356");
+         "between lines 350 and 361");
       }();
    });
    _elm.List.values = {_op: _op
@@ -4736,7 +4736,7 @@ Elm.Maybe.make = function (_elm) {
             case "Nothing":
             return $default;}
          _U.badCase($moduleName,
-         "between lines 45 and 47");
+         "between lines 45 and 56");
       }();
    });
    var Nothing = {ctor: "Nothing"};
@@ -4749,11 +4749,11 @@ Elm.Maybe.make = function (_elm) {
                     case "Nothing":
                     return oneOf(maybes._1);}
                  _U.badCase($moduleName,
-                 "between lines 64 and 66");
+                 "between lines 64 and 73");
               }();
             case "[]": return Nothing;}
          _U.badCase($moduleName,
-         "between lines 59 and 66");
+         "between lines 59 and 73");
       }();
    };
    var andThen = F2(function (maybeValue,
@@ -4778,7 +4778,7 @@ Elm.Maybe.make = function (_elm) {
             return Just(f(maybe._0));
             case "Nothing": return Nothing;}
          _U.badCase($moduleName,
-         "between lines 76 and 78");
+         "between lines 76 and 107");
       }();
    });
    _elm.Maybe.values = {_op: _op
@@ -13185,7 +13185,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return $Maybe.Just(result._0);}
          _U.badCase($moduleName,
-         "between lines 164 and 166");
+         "between lines 164 and 177");
       }();
    };
    var Err = function (a) {
@@ -13200,7 +13200,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return callback(result._0);}
          _U.badCase($moduleName,
-         "between lines 126 and 128");
+         "between lines 126 and 145");
       }();
    });
    var Ok = function (a) {
@@ -13214,7 +13214,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return Ok(func(ra._0));}
          _U.badCase($moduleName,
-         "between lines 41 and 43");
+         "between lines 41 and 52");
       }();
    });
    var map2 = F3(function (func,
@@ -13368,7 +13368,7 @@ Elm.Result.make = function (_elm) {
                  return Err(_v39._4._0);}
               break;}
          _U.badCase($moduleName,
-         "between lines 82 and 88");
+         "between lines 82 and 123");
       }();
    });
    var formatError = F2(function (f,
@@ -13380,7 +13380,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return Ok(result._0);}
          _U.badCase($moduleName,
-         "between lines 148 and 150");
+         "between lines 148 and 161");
       }();
    });
    var fromMaybe = F2(function (err,
@@ -13582,7 +13582,7 @@ Elm.Signal.make = function (_elm) {
             case "[]":
             return $Debug.crash("mergeMany was given an empty list!");}
          _U.badCase($moduleName,
-         "between lines 177 and 182");
+         "between lines 177 and 197");
       }();
    };
    var foldp = $Native$Signal.foldp;
@@ -14177,29 +14177,57 @@ Elm.Tea.make = function (_elm) {
    var Never = function (a) {
       return {ctor: "Never",_0: a};
    };
-   var Effects = function (a) {
-      return {ctor: "Effects"
+   var effectsToTask = function (effects) {
+      return function () {
+         switch (effects.ctor)
+         {case "Concurrent":
+            return $Task.map($Basics.always({ctor: "_Tuple0"}))($Task.sequence(A2($List.map,
+              function ($) {
+                 return $Task.spawn(effectsToTask($));
+              },
+              effects._0)));
+            case "NoEffect":
+            return $Task.succeed({ctor: "_Tuple0"});
+            case "Sequential":
+            return $Task.map($Basics.always({ctor: "_Tuple0"}))($Task.sequence(A2($List.map,
+              effectsToTask,
+              effects._0)));
+            case "SingleTask":
+            return effects._0;}
+         _U.badCase($moduleName,
+         "between lines 62 and 74");
+      }();
+   };
+   var Concurrent = function (a) {
+      return {ctor: "Concurrent"
              ,_0: a};
    };
-   var doNothing = Effects(_L.fromArray([]));
+   var Sequential = function (a) {
+      return {ctor: "Sequential"
+             ,_0: a};
+   };
+   var batch = Sequential;
+   var SingleTask = function (a) {
+      return {ctor: "SingleTask"
+             ,_0: a};
+   };
+   var arbitraryTask = F2(function (dispatcher,
+   task) {
+      return SingleTask(A2($Task.andThen,
+      task,
+      $Signal.send(dispatcher)));
+   });
+   var NoEffect = {ctor: "NoEffect"};
+   var doNothing = NoEffect;
    var start = function (app) {
       return function () {
-         var stateToTask = function (_v0) {
+         var stateToTask = function (_v4) {
             return function () {
-               switch (_v0.ctor)
+               switch (_v4.ctor)
                {case "_Tuple2":
-                  switch (_v0._1.ctor)
-                    {case "Effects":
-                       return A2($Task.andThen,
-                         $Task.sequence(_v0._1._0),
-                         function (_v5) {
-                            return function () {
-                               return $Task.succeed({ctor: "_Tuple0"});
-                            }();
-                         });}
-                    break;}
+                  return effectsToTask(_v4._1);}
                _U.badCase($moduleName,
-               "between lines 81 and 82");
+               "on line 100, column 7 to 28");
             }();
          };
          var actions = $Signal.mailbox($Maybe.Nothing);
@@ -14207,22 +14235,22 @@ Elm.Tea.make = function (_elm) {
          actions.address,
          $Maybe.Just);
          var state = A3($Signal.foldp,
-         F2(function (_v7,_v8) {
+         F2(function (_v8,_v9) {
             return function () {
-               switch (_v8.ctor)
+               switch (_v9.ctor)
                {case "_Tuple2":
                   return function () {
-                       switch (_v7.ctor)
+                       switch (_v8.ctor)
                        {case "Just":
                           return A3(app.update,
                             address,
-                            _v7._0,
-                            _v8._0);}
+                            _v8._0,
+                            _v9._0);}
                        _U.badCase($moduleName,
-                       "on line 76, column 39 to 70");
+                       "on line 95, column 39 to 70");
                     }();}
                _U.badCase($moduleName,
-               "on line 76, column 39 to 70");
+               "on line 95, column 39 to 70");
             }();
          }),
          {ctor: "_Tuple2"
@@ -14239,25 +14267,6 @@ Elm.Tea.make = function (_elm) {
                 },
                 state)};
       }();
-   };
-   var arbitraryTask = F2(function (dispatcher,
-   task) {
-      return Effects(_L.fromArray([A2($Task.andThen,
-      task,
-      $Signal.send(dispatcher))]));
-   });
-   var batch = function (effectList) {
-      return Effects(A2($List.concatMap,
-      function (_v14) {
-         return function () {
-            switch (_v14.ctor)
-            {case "Effects":
-               return _v14._0;}
-            _U.badCase($moduleName,
-            "on line 55, column 50 to 57");
-         }();
-      },
-      effectList));
    };
    var to = F2(function (dispatcher,
    f) {

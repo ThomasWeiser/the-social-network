@@ -36,23 +36,42 @@ to dispatcher f =
 
 -- EFFECTS
 
-type Effects =
-    Effects (List (Task.Task Never ()))
+type Effects
+  = NoEffect
+  | SingleTask (Task.Task Never ())
+  | Sequential (List Effects)
+  | Concurrent (List Effects)
 
 
 doNothing : Effects
 doNothing =
-  Effects []
+  NoEffect
 
 
 arbitraryTask : Dispatcher action -> Task.Task Never action -> Effects
 arbitraryTask dispatcher task =
-  Effects [ task `Task.andThen` Signal.send dispatcher ]
+  SingleTask ( task `Task.andThen` Signal.send dispatcher )
 
 
 batch : List Effects -> Effects
-batch effectList =
-  Effects (List.concatMap (\(Effects effects) -> effects) effectList)
+batch = Sequential
+
+
+effectsToTask : Effects -> Task.Task Never ()
+effectsToTask effects =
+  case effects of
+    NoEffect ->
+      Task.succeed ()
+    SingleTask task ->
+      task
+    Sequential listOfEffects ->
+      List.map effectsToTask listOfEffects
+      |> Task.sequence
+      |> Task.map (always ())
+    Concurrent listOfEffects ->
+      List.map (effectsToTask >> Task.spawn) listOfEffects
+      |> Task.sequence
+      |> Task.map (always ())
 
 
 -- NEVER
@@ -77,9 +96,8 @@ start app =
         (app.model, doNothing)
         actions.signal
 
-    stateToTask (_, Effects taskList) =
-      Task.sequence taskList
-        `Task.andThen` \_ -> Task.succeed ()
+    stateToTask (_, effects) =
+      effectsToTask effects
   in
     { frames =
         Signal.map (app.view address << fst) state
